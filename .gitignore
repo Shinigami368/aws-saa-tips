@@ -1,0 +1,20 @@
+# Sisyphus planner files
+.sisyphus/
+.local/
+
+# Development scripts (not needed in production)
+scripts/
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

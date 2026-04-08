@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS SAA-C03 Practice Questions</title>
+    <meta name="description" content="Independent AWS SAA-C03 practice resource with 650 questions, 10 practice exams, a study guide, and a cheat sheet.">
+    <link rel="canonical" href="https://shinigami368.github.io/aws-saa-tips/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AWS SAA-C03 Practice Questions">
+    <meta property="og:description" content="650 AWS SAA-C03 practice questions, 10 practice exams, study guide, cheat sheet, and interactive quiz.">
+    <meta property="og:url" content="https://shinigami368.github.io/aws-saa-tips/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AWS SAA-C03 Practice Questions">
+    <meta name="twitter:description" content="650 AWS SAA-C03 practice questions, 10 practice exams, study guide, cheat sheet, and interactive quiz.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 700px;
+        }
+        
+        .logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #FF9900, #FFB800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255, 153, 0, 0.2);
+            border: 1px solid #FF9900;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: #FF9900;
+            color: #FF9900;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FF9900;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: block;
+            padding: 18px 40px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FF9900, #FFB800);
+            color: #000;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            border-color: #FF9900;
+            color: #FF9900;
+        }
+
+        .btn-repo {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .btn-repo:hover {
+            border-color: #4ecdc4;
+            color: #4ecdc4;
+        }
+        
+        .features {
+            margin-top: 50px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .features h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #FF9900;
+        }
+        
+        .features ul {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #d0d0d0;
+        }
+        
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF9900;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/Shinigami368" class="social-link" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <a href="https://www.linkedin.com/in/berkay-cakibey/" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <div class="logo">📚</div>
+        
+        <h1>AWS SAA-C03 Practice</h1>
+        <p class="subtitle">650 Questions • 10 Practice Exams • Interactive Quiz</p>
+        
+        <div class="badge">✅ Last reviewed: 2026-04-09</div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">650</div>
+                <div class="stat-label">Questions</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Practice Exams</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">130</div>
+                <div class="stat-label">Minutes</div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <a href="website/ultimate-quiz.html" class="btn btn-primary">🎯 Start Quiz</a>
+            <button class="btn btn-secondary" onclick="downloadQuestions()">📥 Download Questions</button>
+            <a href="https://github.com/Shinigami368/aws-saa-tips" class="btn btn-repo" target="_blank" rel="noopener noreferrer">⭐ View GitHub Repo</a>
+        </div>
+        
+        <div class="buttons" style="margin-top: 10px;">
+            <a href="website/study-guide.html" class="btn btn-secondary">📘 Study Guide</a>
+            <a href="website/cheat-sheet.html" class="btn btn-secondary">📄 Cheat Sheet</a>
+            <a href="website/README.html" class="btn btn-secondary">📖 README</a>
+        </div>
+        
+        <div class="features">
+            <h2>📋 Contents</h2>
+            <ul>
+                <li>650 questions covering all topics</li>
+                <li>Detailed explanations and key rules</li>
+                <li>Interactive quiz interface</li>
+                <li>Scenario-based questions matching exam format</li>
+                <li>Quick reference for last-minute review</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Independent AWS SAA-C03 study resource. Not affiliated with or endorsed by AWS.
+        </div>
+    </div>
+    <script>
+    function downloadQuestions() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'website/questions-all.js', true);
+        xhr.onprogress = function(e) { /* downloading */ };
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const blob = new Blob([xhr.response], {type: 'text/javascript'});
+                if (navigator.msSaveBlob) {
+                    navigator.msSaveBlob(blob, 'aws-saa-questions.js');
+                } else {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'aws-saa-questions.js';
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+            } else {
+                alert('Download failed. Status: ' + xhr.status);
+            }
+        };
+        xhr.onerror = function() {
+            alert('Download failed. Network error.');
+        };
+        xhr.send();
+    }
+    </script>
+</body>
+</html>

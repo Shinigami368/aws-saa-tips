@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS SAA-C03 Practice - README</title>
+    <meta name="description" content="Project overview for the AWS SAA-C03 practice site with quiz features, study resources, usage flow, and official AWS doc references.">
+    <link rel="canonical" href="https://shinigami368.github.io/aws-saa-tips/website/README.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AWS SAA-C03 Practice README">
+    <meta property="og:description" content="Overview of the AWS SAA-C03 practice site, quiz features, study resources, and usage flow.">
+    <meta property="og:url" content="https://shinigami368.github.io/aws-saa-tips/website/README.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AWS SAA-C03 Practice README">
+    <meta name="twitter:description" content="Overview of the AWS SAA-C03 practice site, quiz features, study resources, and usage flow.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            line-height: 1.7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(30, 30, 63, 0.8);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 153, 0, 0.3);
+        }
+        h1 { color: #ff9900; font-size: 2rem; margin-bottom: 20px; }
+        h2 { color: #ff9900; margin: 30px 0 15px; border-bottom: 1px solid rgba(255,153,0,0.3); padding-bottom: 10px; }
+        h3 { color: #ffb800; margin: 20px 0 10px; }
+        h4 { color: #ffb800; margin: 15px 0 10px; }
+        .toc {
+            background: rgba(255,153,0,0.1);
+            border: 1px solid rgba(255,153,0,0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .toc h2 { color: #ff9900; margin: 0 0 15px; border: none; padding: 0; }
+        .toc ul { margin: 0; padding-left: 20px; }
+        .toc li { margin: 8px 0; }
+        .toc a { color: #fff; text-decoration: none; }
+        .toc a:hover { color: #ff9900; text-decoration: underline; }
+        a { color: #ff9900; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code { background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; color: #4ecdc4; }
+        pre { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 8px; overflow-x: auto; margin: 15px 0; }
+        pre code { background: none; padding: 0; display: block; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { color: #ff9900; background: rgba(0,0,0,0.2); }
+        tr:hover { background: rgba(255,153,0,0.1); }
+        .home-btn {
+            display: inline-block;
+            background: #ff9900;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .home-btn:hover { background: #ffb800; text-decoration: none; }
+        .repo-btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+        .repo-btn:hover { border-color: #ff9900; color: #ff9900; text-decoration: none; }
+        .social-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        blockquote {
+            background: rgba(255,153,0,0.1);
+            border-left: 4px solid #ff9900;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        ul { margin: 15px 0 15px 25px; }
+        li { margin: 8px 0; }
+        hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
+        p { margin: 10px 0; }
+        img { max-width: 100%; height: auto; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="social-row">
+            <a href="../index.html" class="home-btn">🏠 Home</a>
+            <a href="https://github.com/Shinigami368/aws-saa-tips" class="repo-btn" target="_blank" rel="noopener noreferrer">⭐ GitHub Repo</a>
+            <a href="https://github.com/Shinigami368" class="repo-btn" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <a href="https://www.linkedin.com/in/berkay-cakibey/" class="repo-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <h1 id="aws-saa-c03-practice-">AWS SAA-C03 Practice 🚀</h1>
+        <div style="text-align:center;">
+            <p><img src="https://img.shields.io/badge/Study-Resource-FF9900?style=for-the-badge" alt="Study Resource" style="max-width:100%;"></p>
+            <p><img src="https://img.shields.io/badge/Exam-SAA--C03-232F3E?style=for-the-badge" alt="Exam Code" style="max-width:100%;"></p>
+            <p><img src="https://img.shields.io/badge/Questions-650-FF6B6B?style=for-the-badge" alt="Questions" style="max-width:100%;"></p>
+            <p><img src="https://img.shields.io/badge/Practice%20Exams-10-4ECDC4?style=for-the-badge" alt="Practice Exams" style="max-width:100%;"></p>
+            <p><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" style="max-width:100%;"></p>
+            <p><strong>650 Questions • 10 Full Practice Exams • Interactive Quiz</strong></p>
+            <p><strong>Last reviewed: 2026-04-09</strong></p>
+            <p><strong><a href="https://shinigami368.github.io/aws-saa-tips/">👉 Start Quiz</a></strong></p>
+        </div>
+<hr>
+<h2 id="-who-is-this-for">🎯 Who Is This For?</h2>
+<table>
+<tr><th>User</th><th>Use Case</th></tr>
+<tr><td><strong>Exam Candidates</strong></td><td>Quick, intensive review</td></tr>
+<tr><td><strong>Engineers</strong></td><td>Pre-exam final check</td></tr>
+<tr><td><strong>Instructors</strong></td><td>Resource for students</td></tr>
+</table>
+<blockquote>⚠️ <strong>Disclaimer</strong>: This is an independent community study resource. It is not affiliated with, endorsed by, or sponsored by AWS. Always verify against <a href="https://docs.aws.amazon.com/">official AWS documentation</a>.</blockquote>
+<hr>
+<h2 id="-quick-access">📚 Quick Access</h2>
+<table>
+<tr><td>File</td><td>Description</td></tr>
+<tr><td><a href="study-guide.html">📋 Study Guide</a></td><td>19 sections, all topics</td></tr>
+<tr><td><a href="cheat-sheet.html">⚡ Cheat Sheet</a></td><td>Last 24-hour review</td></tr>
+<tr><td><a href="https://shinigami368.github.io/aws-saa-tips/">🎯 Interactive Quiz</a></td><td>650 questions, 10 exams</td></tr>
+</table>
+<hr>
+<h2 id="-features">✨ Features</h2>
+<ul>
+<li>650 practice questions across 10 full exam sets</li>
+<li>Topic filtering with a single primary category per question</li>
+<li>Direct links to official AWS documentation for every question</li>
+<li>Study guide and cheat sheet for pre-quiz review</li>
+<li>Final results summary with score, time spent, exam breakdown, and topic breakdown</li>
+<li>Last-question <code>Finish Quiz</code> flow for custom exam combinations</li>
+</ul>
+<hr>
+<h2 id="-how-to-use-the-quiz">🧭 How to Use the Quiz</h2>
+<ol>
+<li>Select the exam sets you want to include.</li>
+<li>Optionally filter by one topic to drill a specific area.</li>
+<li>Click <code>Start Quiz</code>.</li>
+<li>Answer questions one by one and use the AWS docs links when you want source material.</li>
+<li>On the last question, click <code>Finish Quiz</code>.</li>
+<li>Review score, accuracy, time spent, and performance by exam and topic.</li>
+</ol>
+<h3 id="recommended-flows">Recommended Flows</h3>
+<ul>
+<li>Full practice exam: select one exam only</li>
+<li>Focused drill: select multiple exams and one topic</li>
+<li>Broad revision: select 5-10 exams with All Topics</li>
+</ul>
+<hr>
+<h2 id="-study-path">🗺️ Study Path</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│  STEP 1: Learn the Basics                                        │
+│  📖 Read the study guide                                         │
+├─────────────────────────────────────────────────────────────────┤
+│  STEP 2: Compare Services                                        │
+│  ⚖️ Memorize comparison tables                                   │
+├─────────────────────────────────────────────────────────────────┤
+│  STEP 3: Learn the Tricks                                        │
+│  🕵️ Trick patterns and gotcha facts                              │
+├─────────────────────────────────────────────────────────────────┤
+│  STEP 4: Practice                                                │
+│  📝 Solve practice exams                                          │
+├─────────────────────────────────────────────────────────────────┤
+│  STEP 5: Final Review                                            │
+│  ⚡ Cheat sheet + 24-hour checklist                              │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<hr>
+<h2 id="-exam-topics-weights">🎓 Exam Topics (Weights)</h2>
+<table>
+<tr><td>Domain</td><td>Weight</td><td>Focus Areas</td></tr>
+<tr><td><strong>Design Secure Architectures</strong></td><td>~30%</td><td>IAM, S3, VPC, Encryption</td></tr>
+<tr><td><strong>Design Resilient Architectures</strong></td><td>~26%</td><td>Multi-AZ, ASG, RDS, S3</td></tr>
+<tr><td><strong>Design High-Performing Architectures</strong></td><td>~24%</td><td>caching, ELB, Aurora, DynamoDB</td></tr>
+<tr><td><strong>Design Cost-Optimized Architectures</strong></td><td>~20%</td><td>Spot, RI, Savings Plans</td></tr>
+</table>
+<hr>
+<h2 id="-quick-review---key-rules">⚡ Quick Review - Key Rules</h2>
+<h3 id="storage">Storage</h3>
+<pre><code>✦ Query S3 with SQL          → Athena
+✦ Private S3 access (free)   → Gateway VPC Endpoint
+✦ Immutable data              → S3 Object Lock (Compliance)
+✦ Unpredictable access        → S3 Intelligent-Tiering</code></pre>
+<h3 id="compute">Compute</h3>
+<pre><code>✦ Least operational overhead   → Fargate, Lambda, Aurora Serverless
+✦ Java Lambda cold start     → SnapStart
+✦ Remote EC2 access          → Session Manager (no SSH keys)</code></pre>
+<h3 id="database">Database</h3>
+<pre><code>✦ Read scaling               → Read Replicas
+✦ HA failover               → Multi-AZ
+✦ Lambda + DB connections    → RDS Proxy
+✦ Sub-ms DynamoDB reads     → DAX</code></pre>
+<h3 id="decoupling">Decoupling</h3>
+<pre><code>✦ 1 message → many consumers → SNS → SQS (fan-out)
+✦ Message ordering           → SQS FIFO
+✦ Real-time streaming       → Kinesis</code></pre>
+<hr>
+<h2 id="-exam-strategy">🏆 Exam Strategy</h2>
+<h3 id="time-management">Time Management</h3>
+<table>
+<tr><td>Question</td><td>Minutes</td></tr>
+<tr><td>65 questions</td><td>130 minutes</td></tr>
+<tr><td>1 question</td><td>~2 minutes</td></tr>
+</table>
+<h3 id="keyword-based-solution">Keyword-Based Solution</h3>
+<pre><code>"least operational overhead"  → Choose Serverless/Managed services
+"highly available"            → Choose Multi-AZ solutions
+"private access"             → Use VPC Endpoint
+"credential rotation"        → Secrets Manager</code></pre>
+<h3 id="elimination-tactics">Elimination Tactics</h3>
+<p>Always eliminate 2 of 4 options immediately:</p>
+<ul>
+<li>❌ Single-AZ solution → eliminate when "highly available" is asked</li>
+<li>❌ Glacier → eliminate when "immediate access" is asked</li>
+<li>❌ EC2 + custom scripts → eliminate when "least overhead" is asked</li>
+<li>❌ IAM user sharing → eliminate in cross-account questions</li>
+</ul>
+<hr>
+<h2 id="-resources">📖 Resources</h2>
+<ul>
+<li><a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf">AWS SAA-C03 Official Exam Guide</a></li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Framework</a></li>
+<li><a href="https://docs.aws.amazon.com/">AWS Documentation</a></li>
+<li><a href="https://explore.skillbuilder.aws/">AWS Skill Builder</a></li>
+</ul>
+<hr>
+<h2 id="-quick-smoke-checklist">✅ Quick Smoke Checklist</h2>
+<ul>
+<li>Main page loads and <code>Start Quiz</code> opens the quiz</li>
+<li>Exam selection updates total question count and estimated time</li>
+<li>Topic buttons show live counts and disable empty topics</li>
+<li>Questions render with 4 options and official AWS docs links</li>
+<li>Last question shows <code>Finish Quiz</code></li>
+<li>Results screen shows correct, incorrect, answered, accuracy, time spent, result</li>
+<li>Results screen shows breakdown by exam and topic</li>
+<li>Study guide, cheat sheet, README, and LICENSE links open correctly</li>
+</ul>
+<hr>
+<h2 id="-topic-quick-access">🗺️ Topic Quick Access</h2>
+<table>
+<tr><td>Topic</td><td>File</td></tr>
+<tr><td>All Topics</td><td><a href="study-guide.html">📋 Study Guide</a></td></tr>
+<tr><td>Last Minute Review</td><td><a href="cheat-sheet.html">⚡ Cheat Sheet</a></td></tr>
+<tr><td>Practice Questions</td><td><a href="https://shinigami368.github.io/aws-saa-tips/">🎯 Start Quiz</a></td></tr>
+</table>
+<hr>
+<h2 id="-license">📝 License</h2>
+<p>This project is licensed under MIT License. See <a href="../LICENSE">LICENSE</a> for details.</p>
+<hr>
+<div style="text-align:center;">
+<p><strong>Live Demo: <a href="https://shinigami368.github.io/aws-saa-tips/">https://shinigami368.github.io/aws-saa-tips/</a></strong></p>
+</div>
+    </div>
+</body>
+</html>
