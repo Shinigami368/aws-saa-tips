@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS SAA-C03 Ultimate Practice Quiz</title>
-    <meta name="description" content="Interactive AWS SAA-C03 practice quiz with 650 questions, custom exam selection, topic filtering, score summary, and official AWS doc links.">
+    <meta name="description" content="Interactive AWS SAA-C03 practice quiz with 325 original questions, 5 full mock exams, topic filtering, score summary, and official AWS doc links.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://shinigami368.github.io/aws-saa-tips/website/ultimate-quiz.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="AWS SAA-C03 Ultimate Practice Quiz">
-    <meta property="og:description" content="Interactive AWS SAA-C03 quiz with 650 questions, topic filters, score tracking, and official AWS documentation links.">
+    <meta property="og:description" content="Interactive AWS SAA-C03 quiz with 325 original questions, topic filters, score tracking, and official AWS documentation links.">
     <meta property="og:url" content="https://shinigami368.github.io/aws-saa-tips/website/ultimate-quiz.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="AWS SAA-C03 Ultimate Practice Quiz">
-    <meta name="twitter:description" content="Interactive AWS SAA-C03 quiz with 650 questions, topic filters, score tracking, and official AWS documentation links.">
+    <meta name="twitter:description" content="Interactive AWS SAA-C03 quiz with 325 original questions, topic filters, score tracking, and official AWS documentation links.">
     <style>
         * {
             margin: 0;
@@ -26,6 +27,7 @@
             min-height: 100vh;
             padding: 20px;
             color: #fff;
+            overflow-x: hidden;
         }
         
         .container {
@@ -107,6 +109,51 @@
             padding: 25px;
             border-radius: 12px;
             margin-bottom: 20px;
+        }
+
+        .mode-selector,
+        .custom-builder,
+        .legal-note {
+            background: #1e1e3f;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,153,0,0.18);
+        }
+
+        .mode-selector h3,
+        .custom-builder h3,
+        .legal-note h3 {
+            color: #ff9900;
+            margin-bottom: 12px;
+        }
+
+        .mode-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .mode-btn {
+            background: #2a2a4a;
+            border: 2px solid #3a3a5a;
+            color: #fff;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            line-height: 1.45;
+        }
+
+        .mode-btn strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .mode-btn.active {
+            background: rgba(255,153,0,0.2);
+            border-color: #ff9900;
         }
         
         .exam-selector h3 {
@@ -195,6 +242,64 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+        }
+
+        .custom-controls {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 180px;
+            gap: 18px;
+            align-items: end;
+        }
+
+        .custom-category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .custom-topic-checkbox {
+            display: none;
+        }
+
+        .custom-topic-label {
+            background: #2a2a4a;
+            border: 2px solid #3a3a5a;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .custom-topic-checkbox:checked + .custom-topic-label {
+            background: rgba(255,153,0,0.2);
+            border-color: #ff9900;
+        }
+
+        .custom-count-field label {
+            display: block;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .custom-count-field input {
+            width: 100%;
+            background: #2a2a4a;
+            border: 2px solid #3a3a5a;
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+        }
+
+        .custom-summary {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            margin-top: 12px;
+            line-height: 1.5;
         }
         
         .filter-btn {
@@ -303,6 +408,7 @@
         .question-meta {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
         
         .question-exam {
@@ -317,6 +423,27 @@
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 0.85rem;
+        }
+
+        .explanation-toggle {
+            background: rgba(100,100,255,0.3);
+            border: 0;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .explanation-toggle:focus-visible,
+        .option:focus-visible,
+        .nav-btn:focus-visible,
+        .start-btn:focus-visible,
+        .filter-btn:focus-visible,
+        .select-btn:focus-visible,
+        .mode-btn:focus-visible {
+            outline: 3px solid #4ecdc4;
+            outline-offset: 3px;
         }
         
         .score-display {
@@ -556,11 +683,75 @@
         }
         
         @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            header,
+            .exam-selector,
+            .topic-filter,
+            .question-card,
+            .results {
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 1.55rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .exam-info,
+            .select-buttons,
+            .mode-buttons,
+            .custom-controls,
+            .nav-buttons,
+            .progress-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .mode-buttons,
+            .custom-controls {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .progress-bar {
+                margin: 8px 0;
+                width: 100%;
+            }
+
+            .question-text {
+                font-size: 1rem;
+            }
+
+            .option {
+                padding: 14px;
+            }
+
             .stats {
                 grid-template-columns: repeat(2, 1fr);
             }
             .exam-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+            }
+
+            .filter-btn,
+            .custom-topic-label,
+            .select-btn,
+            .mode-btn,
+            .nav-btn,
+            .start-btn,
+            .header-link {
+                width: 100%;
+            }
+
+            .score-circle {
+                width: 160px;
+                height: 160px;
             }
         }
 
@@ -586,7 +777,7 @@
     <div class="container">
         <header>
             <h1>AWS SAA-C03 Ultimate Practice Quiz</h1>
-            <p class="subtitle">650 Questions across 10 Practice Exams</p>
+            <p class="subtitle">325 original questions across 5 full mock exams</p>
             <div class="exam-info">
                 <span>📝 <span id="totalQuestions">0</span> Questions</span>
                 <span>⏱️ ~<span id="totalTime">0</span> Minutes</span>
@@ -599,16 +790,35 @@
             <div class="profile-links">
                 <a href="https://github.com/Shinigami368" class="header-link" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
                 <a href="https://www.linkedin.com/in/berkay-cakibey/" class="header-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:cakibey368@gmail.com" class="header-link">Contact</a>
             </div>
         </header>
+
+        <div class="legal-note" id="legalNote">
+            <h3>Independent Practice Resource</h3>
+            <p class="topic-filter-note">Created by Berkay Cakibey. These questions were written from scratch for study practice. This site is unofficial and is not affiliated with, endorsed by, sponsored by, or provided by Amazon Web Services. AWS service names and links are used only to identify the relevant official documentation. For corrections, contact <a href="mailto:cakibey368@gmail.com">cakibey368@gmail.com</a>.</p>
+        </div>
+
+        <div class="mode-selector" id="modeSelector">
+            <h3>Choose Quiz Mode</h3>
+            <div class="mode-buttons">
+                <button class="mode-btn active" id="examModeBtn" onclick="setQuizMode('exam')">
+                    <strong>Mock Exam Mode</strong>
+                    Pick one or more full 65-question practice exams.
+                </button>
+                <button class="mode-btn" id="customModeBtn" onclick="setQuizMode('custom')">
+                    <strong>Create Your Own Quiz</strong>
+                    Choose categories and the number of questions from the full 325-question pool.
+                </button>
+            </div>
+        </div>
         
         <div class="exam-selector" id="examSelector">
             <h3>Select Practice Exams</h3>
             <div class="select-buttons">
-                <button class="select-btn" onclick="selectAll()">Select All (10)</button>
+                <button class="select-btn" onclick="selectAll()">Select All (5)</button>
                 <button class="select-btn" onclick="selectNone()">Clear All</button>
-                <button class="select-btn" onclick="selectFirst5()">First 5</button>
-                <button class="select-btn" onclick="selectLast5()">Last 5</button>
+                <button class="select-btn" onclick="selectFirst5()">All 5 Exams</button>
             </div>
             <div class="exam-grid">
                 <input type="checkbox" id="exam1" value="1" class="exam-checkbox" checked>
@@ -626,20 +836,6 @@
                 <input type="checkbox" id="exam5" value="5" class="exam-checkbox" checked>
                 <label for="exam5" class="exam-label">Exam 5</label>
                 
-                <input type="checkbox" id="exam6" value="6" class="exam-checkbox">
-                <label for="exam6" class="exam-label">Exam 6</label>
-                
-                <input type="checkbox" id="exam7" value="7" class="exam-checkbox">
-                <label for="exam7" class="exam-label">Exam 7</label>
-                
-                <input type="checkbox" id="exam8" value="8" class="exam-checkbox">
-                <label for="exam8" class="exam-label">Exam 8</label>
-                
-                <input type="checkbox" id="exam9" value="9" class="exam-checkbox">
-                <label for="exam9" class="exam-label">Exam 9</label>
-                
-                <input type="checkbox" id="exam10" value="10" class="exam-checkbox">
-                <label for="exam10" class="exam-label">Exam 10</label>
             </div>
             <p class="question-count">Selected: <span id="selectedCount">5</span> exams = <span id="selectedQuestions">325</span> questions</p>
         </div>
@@ -655,12 +851,36 @@
                 <button class="filter-btn" data-topic="Security" data-label="Security" onclick="setTopic(this, 'Security')">Security</button>
                 <button class="filter-btn" data-topic="Networking" data-label="Networking" onclick="setTopic(this, 'Networking')">Networking</button>
                 <button class="filter-btn" data-topic="Decoupling" data-label="Decoupling" onclick="setTopic(this, 'Decoupling')">Decoupling</button>
-                <button class="filter-btn" data-topic="Cost" data-label="Cost" onclick="setTopic(this, 'Cost')">Cost</button>
+                <button class="filter-btn" data-topic="Cost Optimization" data-label="Cost Optimization" onclick="setTopic(this, 'Cost Optimization')">Cost Optimization</button>
                 <button class="filter-btn" data-topic="Migration" data-label="Migration" onclick="setTopic(this, 'Migration')">Migration</button>
                 <button class="filter-btn" data-topic="Architecture" data-label="Architecture" onclick="setTopic(this, 'Architecture')">Architecture</button>
                 <button class="filter-btn" data-topic="Serverless" data-label="Serverless" onclick="setTopic(this, 'Serverless')">Serverless</button>
                 <button class="filter-btn" data-topic="High Availability & Resilience" data-label="HA & Resilience" onclick="setTopic(this, 'High Availability & Resilience')">HA & Resilience</button>
+                <button class="filter-btn" data-topic="Operations" data-label="Operations" onclick="setTopic(this, 'Operations')">Operations</button>
+                <button class="filter-btn" data-topic="Governance" data-label="Governance" onclick="setTopic(this, 'Governance')">Governance</button>
+                <button class="filter-btn" data-topic="Hybrid" data-label="Hybrid" onclick="setTopic(this, 'Hybrid')">Hybrid</button>
+                <button class="filter-btn" data-topic="Analytics" data-label="Analytics" onclick="setTopic(this, 'Analytics')">Analytics</button>
+                <button class="filter-btn" data-topic="Performance" data-label="Performance" onclick="setTopic(this, 'Performance')">Performance</button>
             </div>
+        </div>
+
+        <div class="custom-builder" id="customBuilder" style="display: none;">
+            <h3>Create Your Own Quiz</h3>
+            <p class="topic-filter-note">Build a custom quiz from the complete 325-question pool. Select one or more categories, choose the number of questions, and the quiz will draw a randomized set from the matching questions.</p>
+            <div class="select-buttons">
+                <button class="select-btn" onclick="selectAllCustomTopics()">Select All Categories</button>
+                <button class="select-btn" onclick="clearCustomTopics()">Clear Categories</button>
+            </div>
+            <div class="custom-controls">
+                <div>
+                    <div class="custom-category-grid" id="customCategoryGrid"></div>
+                </div>
+                <div class="custom-count-field">
+                    <label for="customQuestionCount">Question count</label>
+                    <input type="number" id="customQuestionCount" min="1" max="325" value="25" inputmode="numeric">
+                </div>
+            </div>
+            <p class="custom-summary" id="customSummary">Selected pool: 325 questions. Quiz length: 25 questions.</p>
         </div>
         
         <div class="start-exam" id="startScreen">
@@ -670,11 +890,11 @@
         
         <div class="progress-container" id="progressContainer" style="display: none;">
             <button class="nav-btn" onclick="backToHome()" style="padding: 8px 16px; font-size: 0.85rem;">🏠 Home</button>
-            <span id="qCounter">Question 1/X</span>
-            <div class="progress-bar">
+            <span id="qCounter" aria-live="polite">Question 1/X</span>
+            <div class="progress-bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <span id="timeDisplay">00:00</span>
+            <span id="timeDisplay" aria-live="polite">00:00</span>
         </div>
         
         <div id="quizContainer"></div>
@@ -722,6 +942,7 @@
                 <h3>Performance by Topic</h3>
             </div>
             
+            <button class="nav-btn submit-btn" id="reviewIncorrectBtn" onclick="reviewIncorrectQuestions()" style="display: none;">Review Incorrect Questions</button>
             <button class="nav-btn" onclick="restartExam()">Try Again</button>
             <button class="nav-btn" onclick="backToHome()">🏠 Home</button>
         </div>
@@ -742,31 +963,44 @@ let userAnswers = [];
 let timer = null;
 let timeRemaining = 0;
 let selectedTopic = 'all';
+let quizMode = 'exam';
+let selectedCustomTopics = new Set();
 let correctCount = 0;
 let incorrectCount = 0;
 let answeredQuestions = new Set();
 let quizStartedAt = null;
+let lastIncorrectQuestions = [];
 const TOPIC_ORDER = [
-    'Storage',
-    'Compute',
-    'Database',
-    'Security',
     'Networking',
-    'Decoupling',
-    'Cost',
+    'Storage',
+    'Database',
     'Migration',
-    'Architecture',
+    'Security',
+    'Compute',
     'Serverless',
-    'High Availability & Resilience'
+    'Decoupling',
+    'High Availability & Resilience',
+    'Architecture',
+    'Operations',
+    'Governance',
+    'Cost Optimization',
+    'Hybrid',
+    'Analytics',
+    'Performance'
 ];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     validateTopicCatalog();
+    buildCustomTopicOptions();
     updateSelectedCount();
     document.querySelectorAll('.exam-checkbox').forEach(cb => {
         cb.addEventListener('change', updateSelectedCount);
     });
+    const customQuestionCount = document.getElementById('customQuestionCount');
+    if (customQuestionCount) {
+        customQuestionCount.addEventListener('input', updateSelectedCount);
+    }
 });
 
 function getSelectedExams() {
@@ -813,11 +1047,16 @@ function updateSelectedCount() {
     const selected = getSelectedExams();
     const count = selected.length;
     const questionCount = count * 65;
+    const customPool = getCustomQuestionPool();
+    const customRequested = getCustomQuestionCount();
+    const displayedQuestionCount = quizMode === 'custom' ? Math.min(customRequested, customPool.length) : questionCount;
+
     document.getElementById('selectedCount').textContent = count;
     document.getElementById('selectedQuestions').textContent = questionCount;
-    document.getElementById('totalQuestions').textContent = questionCount;
-    document.getElementById('totalTime').textContent = Math.ceil(questionCount * 2);
+    document.getElementById('totalQuestions').textContent = displayedQuestionCount;
+    document.getElementById('totalTime').textContent = Math.ceil(displayedQuestionCount * 2);
     refreshTopicCounts();
+    updateCustomSummary(customPool, customRequested);
 }
 
 function selectAll() {
@@ -838,14 +1077,6 @@ function selectFirst5() {
     updateSelectedCount();
 }
 
-function selectLast5() {
-    selectNone();
-    for (let i = 6; i <= 10; i++) {
-        document.getElementById('exam' + i).checked = true;
-    }
-    updateSelectedCount();
-}
-
 function setTopic(button, topic) {
     selectedTopic = topic;
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -857,7 +1088,113 @@ function setTopic(button, topic) {
     }
 }
 
+function setQuizMode(mode) {
+    quizMode = mode;
+    document.getElementById('examModeBtn').classList.toggle('active', mode === 'exam');
+    document.getElementById('customModeBtn').classList.toggle('active', mode === 'custom');
+    document.getElementById('examSelector').style.display = mode === 'exam' ? 'block' : 'none';
+    document.getElementById('topicFilter').style.display = mode === 'exam' ? 'block' : 'none';
+    document.getElementById('customBuilder').style.display = mode === 'custom' ? 'block' : 'none';
+    updateSelectedCount();
+}
+
+function buildCustomTopicOptions() {
+    const grid = document.getElementById('customCategoryGrid');
+    if (!grid) return;
+
+    const counts = Object.fromEntries(TOPIC_ORDER.map(topic => [topic, 0]));
+    allExamQuestions.forEach(q => {
+        if (counts[q.topic] !== undefined) counts[q.topic] += 1;
+    });
+
+    selectedCustomTopics = new Set(TOPIC_ORDER);
+    grid.innerHTML = TOPIC_ORDER.map((topic, index) => {
+        const id = `customTopic${index}`;
+        return `
+            <input type="checkbox" id="${id}" value="${topic}" class="custom-topic-checkbox" checked>
+            <label for="${id}" class="custom-topic-label">${topic} (${counts[topic] || 0})</label>
+        `;
+    }).join('');
+
+    grid.querySelectorAll('.custom-topic-checkbox').forEach(cb => {
+        cb.addEventListener('change', () => {
+            selectedCustomTopics = new Set(Array.from(document.querySelectorAll('.custom-topic-checkbox:checked')).map(item => item.value));
+            updateSelectedCount();
+        });
+    });
+}
+
+function selectAllCustomTopics() {
+    document.querySelectorAll('.custom-topic-checkbox').forEach(cb => cb.checked = true);
+    selectedCustomTopics = new Set(TOPIC_ORDER);
+    updateSelectedCount();
+}
+
+function clearCustomTopics() {
+    document.querySelectorAll('.custom-topic-checkbox').forEach(cb => cb.checked = false);
+    selectedCustomTopics = new Set();
+    updateSelectedCount();
+}
+
+function getCustomQuestionPool() {
+    if (selectedCustomTopics.size === 0) return [];
+    return allExamQuestions.filter(q => selectedCustomTopics.has(q.topic));
+}
+
+function getCustomQuestionCount() {
+    const input = document.getElementById('customQuestionCount');
+    const parsed = input ? parseInt(input.value, 10) : 25;
+    return Number.isFinite(parsed) ? Math.max(1, parsed) : 25;
+}
+
+function shuffleQuestions(questions) {
+    const shuffled = [...questions];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function updateCustomSummary(pool = getCustomQuestionPool(), requested = getCustomQuestionCount()) {
+    const summary = document.getElementById('customSummary');
+    const input = document.getElementById('customQuestionCount');
+    if (!summary || !input) return;
+
+    input.max = allExamQuestions.length;
+
+    const selectedCount = selectedCustomTopics.size;
+    if (selectedCount === 0) {
+        summary.textContent = 'Select at least one category to create a custom quiz.';
+        summary.style.color = '#f87171';
+    } else if (requested > pool.length) {
+        summary.textContent = `Selected pool: ${pool.length} questions across ${selectedCount} categories. Requested: ${requested}. Select more categories or lower the question count.`;
+        summary.style.color = '#f87171';
+    } else {
+        summary.textContent = `Selected pool: ${pool.length} questions across ${selectedCount} categories. Quiz length: ${requested} questions. Questions are randomized from this pool each time.`;
+        summary.style.color = '#cbd5e1';
+    }
+}
+
 function startExam() {
+    if (quizMode === 'custom') {
+        const pool = getCustomQuestionPool();
+        if (pool.length === 0) {
+            alert('Please select at least one category.');
+            return;
+        }
+
+        const requestedCount = getCustomQuestionCount();
+        if (requestedCount > pool.length) {
+            alert(`The selected categories contain ${pool.length} questions, but you requested ${requestedCount}. Select more categories or lower the question count.`);
+            return;
+        }
+
+        selectedQuestions = shuffleQuestions(pool).slice(0, requestedCount);
+        launchQuiz();
+        return;
+    }
+
     const selectedExams = getSelectedExams();
     if (selectedExams.length === 0) {
         alert('Please select at least one exam.');
@@ -874,9 +1211,15 @@ function startExam() {
         alert('No questions match the selected criteria.');
         return;
     }
-    
-    // Shuffle questions
-    selectedQuestions.sort(() => Math.random() - 0.5);
+    selectedQuestions = shuffleQuestions(selectedQuestions);
+    launchQuiz();
+}
+
+function launchQuiz() {
+    if (selectedQuestions.length === 0) {
+        alert('No questions match the selected criteria.');
+        return;
+    }
     
     // Initialize answers
     userAnswers = new Array(selectedQuestions.length).fill(null);
@@ -893,12 +1236,18 @@ function startExam() {
     startTimer();
     
     // Show quiz
+    document.getElementById('results').classList.remove('active');
+    document.getElementById('quizContainer').innerHTML = '';
+    document.getElementById('modeSelector').style.display = 'none';
+    document.getElementById('legalNote').style.display = 'none';
     document.getElementById('examSelector').style.display = 'none';
     document.getElementById('topicFilter').style.display = 'none';
+    document.getElementById('customBuilder').style.display = 'none';
     document.getElementById('startScreen').style.display = 'none';
     document.getElementById('progressContainer').style.display = 'flex';
     
     showQuestion();
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function startTimer() {
@@ -928,18 +1277,21 @@ function showQuestion() {
     
     // Update progress
     document.getElementById('qCounter').textContent = `Question ${currentQuestion + 1}/${selectedQuestions.length}`;
-    document.getElementById('progressFill').style.width = `${((currentQuestion + 1) / selectedQuestions.length) * 100}%`;
+    const progressPercent = ((currentQuestion + 1) / selectedQuestions.length) * 100;
+    document.getElementById('progressFill').style.width = `${progressPercent}%`;
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) progressBar.setAttribute('aria-valuenow', Math.round(progressPercent).toString());
     
     // Build question HTML
     let html = `
         <div class="question-card active">
             <div class="question-header">
-                <span class="question-number">Question ${currentQuestion + 1}</span>
+                    <span class="question-number">Question ${currentQuestion + 1}</span>
                 <div class="question-meta">
                     <span class="question-exam">Exam ${q.exam}</span>
                     <span class="question-topic">${q.topic}</span>
-                    <span class="score-display" id="scoreDisplay">✅ ${correctCount} | ❌ ${incorrectCount}</span>
-                    <span class="question-topic" style="background: rgba(100,100,255,0.3); cursor: pointer;" onclick="toggleExplanation()">👁️ Explanation</span>
+                    <span class="score-display" id="scoreDisplay" aria-live="polite">✅ ${correctCount} | ❌ ${incorrectCount}</span>
+                    <button type="button" class="explanation-toggle" id="explanationToggle" aria-controls="explanation" aria-expanded="false" onclick="toggleExplanation()">👁️ Explanation</button>
                 </div>
             </div>
             <div class="question-text">${q.q}</div>
@@ -948,7 +1300,8 @@ function showQuestion() {
     
     q.options.forEach((opt, i) => {
         const selected = userAnswers[currentQuestion] === i ? 'selected' : '';
-        html += `<div class="option ${selected}" onclick="selectOption(${i})">${opt}</div>`;
+        const pressed = userAnswers[currentQuestion] === i ? 'true' : 'false';
+        html += `<div class="option ${selected}" role="button" tabindex="0" aria-pressed="${pressed}" onclick="selectOption(${i})" onkeydown="handleOptionKeydown(event, ${i})">${opt}</div>`;
     });
     
     html += `
@@ -985,25 +1338,35 @@ function selectOption(index) {
     const q = selectedQuestions[currentQuestion];
     const isCorrect = index === q.correct;
     
-    // Skoru güncelle
+    // Update score.
     if (isCorrect) correctCount++;
     else incorrectCount++;
     
-    // Anında feedback göster
+    // Show immediate feedback.
     document.querySelectorAll('.option').forEach((opt, i) => {
         opt.classList.remove('selected');
+        opt.setAttribute('aria-pressed', i === index ? 'true' : 'false');
         if (i === q.correct) opt.classList.add('correct');
         if (i === index && !isCorrect) opt.classList.add('incorrect');
     });
     
-    // Skor gösterimini güncelle
+    // Refresh the visible score.
     updateScoreDisplay();
+}
+
+function handleOptionKeydown(event, index) {
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        selectOption(index);
+    }
 }
 
 function toggleExplanation() {
     const exp = document.getElementById('explanation');
     if (exp) {
-        exp.classList.toggle('show');
+        const isShown = exp.classList.toggle('show');
+        const toggle = document.getElementById('explanationToggle');
+        if (toggle) toggle.setAttribute('aria-expanded', isShown ? 'true' : 'false');
     }
 }
 
@@ -1120,6 +1483,16 @@ function renderQuizSummary(summary) {
     else if (summary.percentage >= 60) message = 'Close to passing. Review explanations.';
     else message = 'Keep studying! Focus on weak topics.';
     document.getElementById('scoreMessage').textContent = message;
+
+    const reviewBtn = document.getElementById('reviewIncorrectBtn');
+    if (reviewBtn) {
+        if (lastIncorrectQuestions.length > 0) {
+            reviewBtn.style.display = 'inline-block';
+            reviewBtn.textContent = `Review ${lastIncorrectQuestions.length} Incorrect Question${lastIncorrectQuestions.length === 1 ? '' : 's'}`;
+        } else {
+            reviewBtn.style.display = 'none';
+        }
+    }
 }
 
 function finishQuiz(reason = 'manual') {
@@ -1131,19 +1504,36 @@ function finishQuiz(reason = 'manual') {
     document.getElementById('results').classList.add('active');
     
     const summary = buildQuizSummary(reason);
+    lastIncorrectQuestions = selectedQuestions.filter((q, i) => userAnswers[i] !== null && userAnswers[i] !== q.correct);
     renderQuizSummary(summary);
+}
+
+function reviewIncorrectQuestions() {
+    if (lastIncorrectQuestions.length === 0) {
+        alert('No incorrect answers to review.');
+        return;
+    }
+
+    selectedQuestions = shuffleQuestions(lastIncorrectQuestions);
+    launchQuiz();
 }
 
 function restartExam() {
     clearInterval(timer);
     timer = null;
+    lastIncorrectQuestions = [];
     document.getElementById('results').classList.remove('active');
-    document.getElementById('examSelector').style.display = 'block';
-    document.getElementById('topicFilter').style.display = 'block';
+    document.getElementById('modeSelector').style.display = 'block';
+    document.getElementById('legalNote').style.display = 'block';
+    document.getElementById('examSelector').style.display = quizMode === 'exam' ? 'block' : 'none';
+    document.getElementById('topicFilter').style.display = quizMode === 'exam' ? 'block' : 'none';
+    document.getElementById('customBuilder').style.display = quizMode === 'custom' ? 'block' : 'none';
     document.getElementById('startScreen').style.display = 'block';
     document.getElementById('progressContainer').style.display = 'none';
     document.getElementById('quizContainer').innerHTML = '';
     document.getElementById('progressFill').style.width = '0%';
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) progressBar.setAttribute('aria-valuenow', '0');
     document.getElementById('qCounter').textContent = 'Question 1/X';
     document.getElementById('timeDisplay').textContent = '00:00';
     selectedQuestions = [];
@@ -1153,6 +1543,7 @@ function restartExam() {
     incorrectCount = 0;
     answeredQuestions = new Set();
     quizStartedAt = null;
+    updateSelectedCount();
 }
 
 function backToHome() {

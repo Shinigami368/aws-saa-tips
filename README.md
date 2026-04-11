@@ -1,207 +1,193 @@
-# AWS SAA-C03 Practice 🚀
+# AWS SAA-C03 Independent Practice Bank
 
-<div align="center">
+An original, unofficial practice resource for the AWS Certified Solutions Architect - Associate (SAA-C03) exam.
 
-![Study Resource](https://img.shields.io/badge/Study-Resource-FF9900?style=for-the-badge)
-![Exam Code](https://img.shields.io/badge/Exam-SAA--C03-232F3E?style=for-the-badge)
-![Questions](https://img.shields.io/badge/Questions-650-FF6B6B?style=for-the-badge)
-![Practice Exams](https://img.shields.io/badge/Practice%20Exams-10-4ECDC4?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+This repository contains 325 scenario-style practice questions, organized as 5 full mock exams with 65 questions each. The questions were written from scratch for study practice and are not copied from AWS exams, exam dumps, third-party question banks, or paraphrased source material.
 
-**650 Questions • 10 Full Practice Exams • Interactive Quiz**
+**Live site:** [https://shinigami368.github.io/aws-saa-tips/](https://shinigami368.github.io/aws-saa-tips/)
 
-**Last reviewed: 2026-04-09**
+**Last reviewed:** 2026-04-11
 
-**[👉 Start Quiz](https://shinigami368.github.io/aws-saa-tips/)**
+## Contents
 
-</div>
+| Resource | Description |
+| --- | --- |
+| [Interactive Quiz](https://shinigami368.github.io/aws-saa-tips/) | Start the browser-based quiz interface |
+| [Quiz App](https://shinigami368.github.io/aws-saa-tips/website/ultimate-quiz.html) | Choose full mock exams or create a custom quiz |
+| [Study Guide](https://shinigami368.github.io/aws-saa-tips/website/study-guide.html) | Structured SAA-C03 review notes |
+| [Cheat Sheet](https://shinigami368.github.io/aws-saa-tips/website/cheat-sheet.html) | Last-minute service boundaries and reminders |
+| [Website README](https://shinigami368.github.io/aws-saa-tips/website/README.html) | Web version of the project overview |
 
----
+## What Is Included
 
-## 🎯 Who Is This For?
+- 325 original practice questions.
+- 5 complete mock exams with 65 questions each.
+- Exactly 4 choices per question.
+- Exactly 1 best answer per question.
+- Scenario-style stems aligned to SAA-C03 study objectives.
+- Explanations that teach the decision rule instead of only naming the answer.
+- Concise key rules for review.
+- Official AWS documentation links for every question.
+- Topic filtering by primary category.
+- Custom quiz creation by category and question count.
+- Review mode for incorrect answers after a quiz attempt.
+- Study guide and cheat sheet pages for review before or after quizzes.
 
-| User | Use Case |
-|------------|----------|
-| **Exam Candidates** | Quick, intensive review |
-| **Engineers** | Pre-exam final check |
-| **Instructors** | Resource for students |
+## Quiz Modes
 
-> ⚠️ **Disclaimer**: This is an independent community study resource. It is not affiliated with, endorsed by, or sponsored by AWS. Always verify against [official AWS documentation](https://docs.aws.amazon.com/).
+### Mock Exam Mode
 
----
+Use this when you want a full exam-style practice session.
 
-## 📚 Quick Access
+1. Open the quiz.
+2. Select one or more of the 5 mock exams.
+3. Optionally filter by one topic.
+4. Start the quiz.
+5. Review score, time spent, exam breakdown, topic breakdown, explanations, and AWS documentation links.
 
-| File | Description |
-|-------|----------|
-| [📋 Study Guide](https://shinigami368.github.io/aws-saa-tips/website/study-guide.html) | 19 sections, all topics |
-| [⚡ Cheat Sheet](https://shinigami368.github.io/aws-saa-tips/website/cheat-sheet.html) | Last 24-hour review |
-| [🎯 Interactive Quiz](https://shinigami368.github.io/aws-saa-tips/) | 650 questions, 10 exams |
-| [📖 README](https://shinigami368.github.io/aws-saa-tips/website/README.html) | Project overview |
+### Create Your Own Quiz
 
----
+Use this when you want targeted practice from the complete 325-question pool.
 
-## ✨ Features
+1. Open the quiz.
+2. Choose `Create Your Own Quiz`.
+3. Select one or more categories.
+4. Enter the number of questions you want.
+5. Start a randomized quiz from the matching pool.
 
-- 650 practice questions across 10 full exam sets
-- Topic filtering with a single primary category per question
-- Direct links to official AWS documentation for every question
-- Study guide and cheat sheet for pre-quiz review
-- Final results summary with score, time spent, exam breakdown, and topic breakdown
-- Last-question `Finish Quiz` flow for custom exam combinations
+### Review Incorrect Questions
 
----
+After finishing a quiz, use `Review Incorrect Questions` to immediately retry only the questions you answered incorrectly. The review set is shuffled before it starts.
 
-## 🧭 How to Use the Quiz
+## Question Bank Status
 
-1. Select the exam sets you want to include.
-2. Optionally filter by one topic to drill a specific area.
-3. Click `Start Quiz`.
-4. Answer questions one by one and use the AWS docs links when you want source material.
-5. On the last question, click `Finish Quiz`.
-6. Review score, accuracy, time spent, and performance by exam and topic.
+| Check | Status |
+| --- | --- |
+| Total accepted questions | 325 |
+| Mock exam structure | 5 x 65 |
+| Question ID continuity | Q001-Q325 |
+| Choices per question | 4 |
+| Correct answer per question | 1 |
+| Official AWS docs links | Present for every question |
+| Generic docs hardening queue | 0 remaining after local audit |
+| Live docs URL check | 273 unique URLs checked, 0 failures |
+| Website integration | Complete |
+| Mobile layout pass | Homepage and quiz passed local browser audit |
 
-### Recommended Flows
+## Category Coverage
 
-- Full practice exam: select one exam only
-- Focused drill: select multiple exams + one topic
-- Broad revision: select 5-10 exams with `All Topics`
+Each question has one primary category for filtering. Many questions naturally touch more than one AWS service or exam domain, but the primary category keeps filtering predictable.
 
----
+| Category | Questions |
+| --- | ---: |
+| Security | 37 |
+| Networking | 29 |
+| Database | 27 |
+| High Availability & Resilience | 26 |
+| Architecture | 26 |
+| Storage | 25 |
+| Serverless | 25 |
+| Compute | 22 |
+| Migration | 20 |
+| Operations | 18 |
+| Cost Optimization | 17 |
+| Decoupling | 16 |
+| Governance | 15 |
+| Analytics | 9 |
+| Hybrid | 8 |
+| Performance | 5 |
 
-## 🗺️ Study Path
+The distribution is not perfectly equal by category. That is intentional: SAA-C03 itself is not evenly distributed by service family, and several architecture scenarios span multiple categories.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  STEP 1: Learn the Basics                                        │
-│  📖 Read the study guide                                         │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 2: Compare Services                                        │
-│  ⚖️ Memorize comparison tables                                   │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 3: Learn the Tricks                                        │
-│  🕵️ Trick patterns and gotcha facts                              │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 4: Practice                                                │
-│  📝 Solve practice exams                                          │
-├─────────────────────────────────────────────────────────────────┤
-│  STEP 5: Final Review                                            │
-│  ⚡ Cheat sheet + 24-hour checklist                              │
-└─────────────────────────────────────────────────────────────────┘
-```
+## Originality And Source Independence
 
----
+The practice questions are intended to be publishable, source-independent study material.
 
-## 🎓 Exam Topics (Weights)
+- They are not official AWS exam questions.
+- They are not represented as actual exam questions.
+- They are not copied from AWS documentation.
+- They are not copied from dumps or third-party banks.
+- AWS documentation is used as the factual reference for explanations and citations.
+- AWS service names are used only to identify AWS services and link to official documentation.
 
-| Domain | Weight | Focus Areas |
-|--------|---------|---------------|
-| **Design Secure Architectures** | ~30% | IAM, S3, VPC, Encryption |
-| **Design Resilient Architectures** | ~26% | Multi-AZ, ASG, RDS, S3 |
-| **Design High-Performing Architectures** | ~24% | caching, ELB, Aurora, DynamoDB |
-| **Design Cost-Optimized Architectures** | ~20% | Spot, RI, Savings Plans |
+No automated originality process can provide a legal guarantee, but the local audit found no duplicate/source-overlap blocker in the accepted bank.
 
----
+## Unofficial AWS Notice
 
-## ⚡ Quick Review - Key Rules
+This project is an independent community study resource. It is not affiliated with, endorsed by, sponsored by, reviewed by, or provided by Amazon Web Services.
 
-### Storage
-```
-✦ Query S3 with SQL          → Athena
-✦ Private S3 access (free)   → Gateway VPC Endpoint
-✦ Immutable data              → S3 Object Lock (Compliance)
-✦ Unpredictable access        → S3 Intelligent-Tiering
-```
+AWS, Amazon Web Services, and related AWS service names are trademarks of Amazon.com, Inc. or its affiliates. This project uses those names only for nominative reference to the technologies being studied.
 
-### Compute
-```
-✦ Least operational overhead   → Fargate, Lambda, Aurora Serverless
-✦ Java Lambda cold start     → SnapStart
-✦ Remote EC2 access          → Session Manager (no SSH keys)
-```
+For authoritative exam and service information, always use official AWS sources:
 
-### Database
-```
-✦ Read scaling               → Read Replicas
-✦ HA failover               → Multi-AZ
-✦ Lambda + DB connections    → RDS Proxy
-✦ Sub-ms DynamoDB reads     → DAX
-```
-
-### Decoupling
-```
-✦ 1 message → many consumers → SNS → SQS (fan-out)
-✦ Message ordering           → SQS FIFO
-✦ Real-time streaming       → Kinesis
-```
-
----
-
-## 🏆 Exam Strategy
-
-### Time Management
-| Question | Minutes |
-|------|--------|
-| 65 questions | 130 minutes |
-| 1 question | ~2 minutes |
-
-### Keyword-Based Solution
-```
-"least operational overhead"  → Choose Serverless/Managed services
-"highly available"            → Choose Multi-AZ solutions
-"private access"             → Use VPC Endpoint
-"credential rotation"        → Secrets Manager
-```
-
-### Elimination Tactics
-Always eliminate 2 of 4 options immediately:
-- ❌ Single-AZ solution → eliminate when "highly available" is asked
-- ❌ Glacier → eliminate when "immediate access" is asked
-- ❌ EC2 + custom scripts → eliminate when "least overhead" is asked
-- ❌ IAM user sharing → eliminate in cross-account questions
-
----
-
-## 📖 Resources
-
-- [AWS SAA-C03 Official Exam Guide](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf)
-- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [AWS Certified Solutions Architect - Associate exam guide](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf)
 - [AWS Documentation](https://docs.aws.amazon.com/)
+- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [AWS Skill Builder](https://explore.skillbuilder.aws/)
 
----
+## Repository Layout
 
-## ✅ Quick Smoke Checklist
+The published website is intentionally small. The browser app uses the generated question bundle in `website/questions-all.js`; generation and audit artifacts can be kept locally for traceability without being required by normal learners.
 
-- Main page loads and `Start Quiz` opens the quiz
-- Exam selection updates total question count and estimated time
-- Topic buttons show live counts and disable empty topics
-- Questions render with 4 options and official AWS docs links
-- Last question shows `Finish Quiz`
-- Results screen shows correct, incorrect, answered, accuracy, time spent, result
-- Results screen shows breakdown by exam and topic
-- Study guide, cheat sheet, README, and LICENSE links open correctly
+### Public Website Files
 
----
+| File or Directory | Purpose |
+| --- | --- |
+| `website/questions-all.js` | Browser-ready quiz data generated from the accepted bank |
+| `website/ultimate-quiz.html` | Interactive quiz application |
+| `index.html` | Landing page |
+| `favicon.svg` | Site favicon |
+| `website/README.html` | Web version of the project overview |
+| `website/study-guide.html` | Web study guide |
+| `website/cheat-sheet.html` | Web cheat sheet |
+| `AWS_SAA_C03_Study_Guide_EN.md` | Markdown source for the study guide |
+| `AWS_SAA_C03_One_Page_Cheat_Sheet.md` | Markdown source for the cheat sheet |
+| `README.md` | Project overview |
+| `LICENSE` | MIT license |
 
-## 🗺️ Topic Quick Access
+### Local Audit And Generation Artifacts
 
-| Topic | File |
-|------|-------|
-| All Topics | [📋 Study Guide](https://shinigami368.github.io/aws-saa-tips/website/study-guide.html) |
-| Last Minute Review | [⚡ Cheat Sheet](https://shinigami368.github.io/aws-saa-tips/website/cheat-sheet.html) |
-| Practice Questions | [🎯 Start Quiz](https://shinigami368.github.io/aws-saa-tips/) |
+These files are useful for maintainers and external audits, but they are not required for a learner to use the website. They are kept locally under `_project_artifacts/`, which is ignored by Git to keep the public repository clean.
 
----
+| File or Directory | Purpose |
+| --- | --- |
+| `_project_artifacts/accepted_bank.json` | Final accepted 325-question source bank used to generate the website bundle |
+| `_project_artifacts/batches/` | Batch artifacts used to create and audit the bank |
+| `_project_artifacts/question_status.json` | Question status ledger |
+| `_project_artifacts/rewrite_report.json` | Completion summary |
+| `_project_artifacts/exam_distribution_report.json` | Exam and category distribution report |
+| `_project_artifacts/FINAL_PUBLICATION_REPORT.md` | Final audit and remediation report |
+| `_project_artifacts/handover_snapshot.md` | Current project handover state |
+| `_project_artifacts/PLAN.md`, `_project_artifacts/RUNBOOK.md`, `_project_artifacts/VERIFIER_CHECKLIST.md`, `_project_artifacts/DOCS_POLICY.md` | Production and audit policy files |
+| `_project_artifacts/*.schema.json`, `_project_artifacts/thresholds.json`, `_project_artifacts/rewrite_sources.json` | Validation schemas, thresholds, and audit configuration |
 
-## 📝 License
+The planning, policy, schema, and batch state files are retained for auditability and handover safety. They are not required for a normal learner using the website, but they document how the bank was produced and verified.
 
-This project is licensed under MIT License. See [LICENSE](LICENSE) for details.
+Local tooling directories such as `.claude/`, `.opencode/`, `.local/`, and agent instruction files are development-only and should not be published.
 
----
+## Local Smoke Checks
 
-<div align="center">
+Recommended checks before publishing or after changes:
 
-**Live Demo: [https://shinigami368.github.io/aws-saa-tips/](https://shinigami368.github.io/aws-saa-tips/)**
+1. Open the homepage.
+2. Start the quiz.
+3. Confirm 325 total questions are available.
+4. Start one full mock exam and confirm it contains 65 questions.
+5. Start a custom quiz with selected categories and a custom question count.
+6. Answer a question and confirm immediate feedback, explanation, key rule, and docs links render.
+7. Finish a quiz and confirm score, time, exam breakdown, and topic breakdown render.
+8. If you answered any question incorrectly, start `Review Incorrect Questions` and confirm only those questions are retried.
+9. Open study guide, cheat sheet, README, GitHub, LinkedIn, and contact links.
+10. Check mobile layout at a narrow viewport.
 
-</div>
+## Contact
+
+If you find a technical mistake, broken link, ambiguous explanation, UI issue, or anything that should be improved, please contact:
+
+- Email: [cakibey368@gmail.com](mailto:cakibey368@gmail.com)
+- LinkedIn: [Berkay Cakibey](https://www.linkedin.com/in/berkay-cakibey/)
+- GitHub: [Shinigami368](https://github.com/Shinigami368)
+
+## License
+
+This repository is licensed under the [MIT License](LICENSE).

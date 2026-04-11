@@ -8,7 +8,7 @@ This guide summarizes:
 - answer elimination logic
 - last-minute review notes
 
-> **Disclaimer**: This is a personal study resource based on exam preparation and AWS documentation. It is not an official AWS publication. Always verify against the [official AWS documentation](https://docs.aws.amazon.com/) and the [SAA-C03 exam guide](https://aws.amazon.com/certification/certified-solutions-architect-associate/).
+> **Disclaimer**: This is an independent, unofficial study resource based on exam preparation and AWS documentation. It is not affiliated with, endorsed by, sponsored by, reviewed by, or provided by Amazon Web Services. Always verify against the [official AWS documentation](https://docs.aws.amazon.com/) and the [SAA-C03 exam guide](https://aws.amazon.com/certification/certified-solutions-architect-associate/).
 
 > **Last reviewed**: April 2026
 
@@ -21,8 +21,8 @@ This guide was compiled from:
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [AWS Whitepapers](https://aws.amazon.com/whitepapers/)
 - [AWS Documentation](https://docs.aws.amazon.com/)
-- AWS Skill Builder / official practice exams
-- 700+ practice questions analyzed for pattern recognition
+- Official AWS documentation and whitepapers for technical verification
+- Independent study notes and original scenario practice patterns
 
 ---
 
@@ -196,7 +196,7 @@ When you see these keywords in an exam question, the answer is typically:
 
 | When You See This | Answer |
 |---|---|
-| "Route to healthy endpoint" | **Simple routing with health check** |
+| "Route to healthy endpoint" | **Failover routing** (active-passive) or **Multi-value answer** (multiple healthy IPs) |
 | "Split traffic by weight (A/B test)" | **Weighted routing** |
 | "Route to lowest latency region" | **Latency-based routing** |
 | "Active-passive failover" | **Failover routing** |
@@ -265,10 +265,11 @@ Standard -> Standard-IA (min 30 days) -> Glacier Flexible -> Glacier Deep Archiv
          -> Intelligent-Tiering (if pattern is unknown)
          -> One Zone-IA (single AZ sufficient, cheaper)
 ```
+Lifecycle rules can transition directly to a later storage class; the arrows show common cost tiers, not a mandatory sequence.
 
 ### 11. CloudFront OAC vs OAI
 - **OAI** = legacy, S3 origin only
-- **OAC** = new, supports S3 + custom origins, recommended
+- **OAC** = new, supports S3 bucket origins, recommended over OAI
 
 ### 12. IAM Policy Evaluation Order
 1. **Explicit DENY** always wins
@@ -454,7 +455,7 @@ The most commonly confused service pairs on the exam:
 ### CloudFront
 - **Invalidation** = force refresh cached objects (costs money)
 - **Lambda@Edge** = run Lambda at edge (heavier, more use cases)
-- **CloudFront Functions** = lightweight JS at edge (faster, header manipulation only)
+- **CloudFront Functions** = lightweight viewer-level JS at edge (faster; headers, URL rewrites, redirects)
 
 ### AWS Backup
 - Centralized backup across S3, EBS, RDS, DynamoDB, EFS, FSx, Storage Gateway
@@ -635,7 +636,7 @@ AWS uses specific words to signal what they want. Here is what they typically me
 **Answer**: Pilot Light — backup data to DR region, minimal infra running, scale up on disaster
 
 **Why others are wrong**:
-- Backup & Restore = RTO in days (too slow)
+- Backup & Restore = RTO in hours-days (slowest)
 - Warm Standby = RTO in minutes (more expensive than needed)
 - Multi-Site Active-Active = most expensive, overkill for 4-hour RTO
 

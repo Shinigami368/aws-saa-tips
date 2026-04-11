@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS SAA-C03 Study Guide</title>
     <meta name="description" content="AWS SAA-C03 study guide covering core services, architecture patterns, exam domains, comparison tables, and review notes.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://shinigami368.github.io/aws-saa-tips/website/study-guide.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="AWS SAA-C03 Study Guide">
@@ -102,6 +103,17 @@
         p { margin: 10px 0; }
         img { max-width: 100%; height: auto; }
         html { scroll-behavior: smooth; }
+        @media (max-width: 700px) {
+            body { padding: 12px; display: block; }
+            .container { padding: 20px 14px; max-width: 100%; }
+            h1 { font-size: 1.55rem; }
+            h2 { font-size: 1.25rem; }
+            .social-row { flex-direction: column; }
+            .home-btn, .repo-btn { width: 100%; margin-left: 0; text-align: center; }
+            table { table-layout: fixed; width: 100%; font-size: 0.82rem; }
+            th, td { padding: 8px; overflow-wrap: anywhere; word-break: normal; }
+            pre { font-size: 0.82rem; }
+        }
     </style>
 </head>
 <body>
@@ -121,18 +133,18 @@
 <li>answer elimination logic</li>
 <li>last-minute review notes</li>
 </ul>
-<blockquote><strong>Disclaimer</strong>: This is a personal study resource based on exam preparation and AWS documentation. It is not an official AWS publication. Always verify against the <a href="https://docs.aws.amazon.com/">official AWS documentation</a> and the <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/">SAA-C03 exam guide</a>.</blockquote>
+<blockquote><strong>Disclaimer</strong>: This is an independent, unofficial study resource based on exam preparation and AWS documentation. It is not affiliated with, endorsed by, sponsored by, reviewed by, or provided by Amazon Web Services. Always verify against the <a href="https://docs.aws.amazon.com/" target="_blank" rel="noopener noreferrer">official AWS documentation</a> and the <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank" rel="noopener noreferrer">SAA-C03 exam guide</a>.</blockquote>
 <blockquote><strong>Last reviewed</strong>: April 2026</blockquote>
 <hr>
 <h2 id="sources--references">Sources & References</h2>
 <p>This guide was compiled from:</p>
 <ul>
-<li><a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf">AWS SAA-C03 Official Exam Guide</a></li>
-<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Framework</a></li>
-<li><a href="https://aws.amazon.com/whitepapers/">AWS Whitepapers</a></li>
-<li><a href="https://docs.aws.amazon.com/">AWS Documentation</a></li>
-<li>AWS Skill Builder / official practice exams</li>
-<li>700+ practice questions analyzed for pattern recognition</li>
+<li><a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf" target="_blank" rel="noopener noreferrer">AWS SAA-C03 Official Exam Guide</a></li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener noreferrer">AWS Well-Architected Framework</a></li>
+<li><a href="https://aws.amazon.com/whitepapers/" target="_blank" rel="noopener noreferrer">AWS Whitepapers</a></li>
+<li><a href="https://docs.aws.amazon.com/" target="_blank" rel="noopener noreferrer">AWS Documentation</a></li>
+<li>Official AWS documentation and whitepapers for technical verification</li>
+<li>Independent study notes and original scenario practice patterns</li>
 </ul>
 <hr>
 <h2 id="exam-objective-mapping">Exam Objective Mapping</h2>
@@ -287,7 +299,7 @@
 <h3 id="route-53">ROUTE 53</h3>
 <table>
 <tr><td>When You See This</td><td>Answer</td></tr>
-<tr><td>"Route to healthy endpoint"</td><td><strong>Simple routing with health check</strong></td></tr>
+<tr><td>"Route to healthy endpoint"</td><td><strong>Failover routing</strong> (active-passive) or <strong>Multi-value answer</strong> (multiple healthy IPs)</td></tr>
 <tr><td>"Split traffic by weight (A/B test)"</td><td><strong>Weighted routing</strong></td></tr>
 <tr><td>"Route to lowest latency region"</td><td><strong>Latency-based routing</strong></td></tr>
 <tr><td>"Active-passive failover"</td><td><strong>Failover routing</strong></td></tr>
@@ -360,10 +372,11 @@
 <pre><code>Standard -&gt; Standard-IA (min 30 days) -&gt; Glacier Flexible -&gt; Glacier Deep Archive
          -&gt; Intelligent-Tiering (if pattern is unknown)
          -&gt; One Zone-IA (single AZ sufficient, cheaper)</code></pre>
+<p>Lifecycle rules can transition directly to a later storage class; the arrows show common cost tiers, not a mandatory sequence.</p>
 <h3 id="11-cloudfront-oac-vs-oai">11. CloudFront OAC vs OAI</h3>
 <ul>
 <li><strong>OAI</strong> = legacy, S3 origin only</li>
-<li><strong>OAC</strong> = new, supports S3 + custom origins, recommended</li>
+<li><strong>OAC</strong> = new, supports S3 bucket origins, recommended over OAI</li>
 </ul>
 <h3 id="12-iam-policy-evaluation-order">12. IAM Policy Evaluation Order</h3>
 <ul>
@@ -540,7 +553,7 @@
 <ul>
 <li><strong>Invalidation</strong> = force refresh cached objects (costs money)</li>
 <li><strong>Lambda@Edge</strong> = run Lambda at edge (heavier, more use cases)</li>
-<li><strong>CloudFront Functions</strong> = lightweight JS at edge (faster, header manipulation only)</li>
+<li><strong>CloudFront Functions</strong> = lightweight viewer-level JS at edge (faster; headers, URL rewrites, redirects)</li>
 </ul>
 <h3 id="aws-backup">AWS Backup</h3>
 <ul>
@@ -686,7 +699,7 @@
 <p><strong>Answer</strong>: Pilot Light — backup data to DR region, minimal infra running, scale up on disaster</p>
 <p><strong>Why others are wrong</strong>:</p>
 <ul>
-<li>Backup & Restore = RTO in days (too slow)</li>
+<li>Backup & Restore = RTO in hours-days (slowest)</li>
 <li>Warm Standby = RTO in minutes (more expensive than needed)</li>
 <li>Multi-Site Active-Active = most expensive, overkill for 4-hour RTO</li>
 </ul>

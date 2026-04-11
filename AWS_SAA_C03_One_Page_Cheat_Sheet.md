@@ -2,6 +2,8 @@
 
 > Print this. Read it 24 hours before the exam.
 
+> **Disclaimer**: This is an independent, unofficial AWS SAA-C03 study resource. It is not affiliated with, endorsed by, sponsored by, reviewed by, or provided by AWS.
+
 ---
 
 ## KEYWORD -> ANSWER (Memorize These)
@@ -18,7 +20,7 @@
 | nobody can delete | Object Lock Compliance | fan-out messaging | SNS -> SQS |
 | interruptible workload | Spot Instances | message ordering | SQS FIFO |
 | 24/7 production | Reserved/Savings Plans | ActiveMQ/RabbitMQ | Amazon MQ |
-| Lambda cold start | Provisioned Concurrency | real-time streaming | Kinesis |
+| Lambda cold start | SnapStart for Java / Provisioned Concurrency when pre-warmed capacity is required | real-time streaming | Kinesis |
 | container, no infra mgmt | ECS Fargate | on-prem -> AWS (dedicated) | Direct Connect |
 | read-heavy DB | Read Replicas | UDP + global + low latency | NLB + Global Accelerator |
 | too many DB connections | RDS Proxy | cost analysis | Cost Explorer |
@@ -61,6 +63,8 @@
 Standard -> Standard-IA (30d min) -> Glacier Flexible (90d min) -> Deep Archive (180d min)
 -> Intelligent-Tiering (unknown pattern, no retrieval fee) -> One Zone-IA (cheaper, single AZ)
 
+Lifecycle rules can skip tiers; this is a cost-tier reminder, not a required sequence.
+
 ---
 
 ## KEY NUMBERS
@@ -74,7 +78,7 @@ Standard -> Standard-IA (30d min) -> Glacier Flexible (90d min) -> Deep Archive 
 
 ## DR STRATEGIES (cheapest -> most expensive)
 
-Backup & Restore (days) -> Pilot Light (hours) -> Warm Standby (minutes) -> Multi-Site Active-Active
+Backup & Restore (hours-days) -> Pilot Light (hours) -> Warm Standby (minutes) -> Multi-Site Active-Active
 
 ---
 
